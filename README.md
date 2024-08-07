@@ -92,6 +92,8 @@ Please make sure you have a system running Ubuntu 20.04.
    roslaunch pepper_dcm_bringup pepper_bringup.launch robot_ip:=<robot_ip> roscore_ip:=<roscore_ip> network_interface:=<network_interface_name>
    ```
 
+   On a New terminal launch the naoqi_driver to get the sensor data.
+
    ```bash
    roslaunch naoqi_driver naoqi_driver.launch nao_ip:=<robot_ip> roscore_ip:=<roscore_ip> network_interface:=<network_interface_name>
    ```
