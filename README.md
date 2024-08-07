@@ -2,7 +2,7 @@
 
 ![CSSR4Africa Logo](CSSR4AfricaLogo.svg)
 
-The Culturally Sensitive Social Robotics for Africa (CSSR4Africa) project aims to equip robots with the ability to interact politely with people in Africa using spatial, non-verbal, and verbal modes of interaction.
+The Culturally Sensitive Social Robotics for Africa (CSSR4Africa) project aims to equip robots to interact politely with people in Africa using spatial, non-verbal, and verbal modes of interaction.
 
 ## Table of Contents
 - [Introduction](#introduction)
@@ -18,11 +18,11 @@ The Culturally Sensitive Social Robotics for Africa (CSSR4Africa) project aims t
 
 ## Introduction
 
-This repository contains the source code and installation instructions for the CSSR4Africa project. The project focuses on acquiring sensor data from the Pepper social robot and controlling actuators on the Pepper robot.
+This repository contains the source code and installation instructions for the CSSR4Africa project.
 
 ## Prerequisites
 
-Ensure you have a system running Ubuntu 20.04 and equipped with ROS Noetic.
+Please make sure you have a system running Ubuntu 20.04.
 
 ## Setting up the Development Environment
 
@@ -97,7 +97,7 @@ Ensure you have a system running Ubuntu 20.04 and equipped with ROS Noetic.
 
 ## Installing and Running the CSSR4Africa Software
 
-### Installing for the Physical Robot
+### Installation for the Physical Robot
 
 1. **Clone and Build the Software**
 
@@ -107,7 +107,7 @@ Ensure you have a system running Ubuntu 20.04 and equipped with ROS Noetic.
     cd .. && catkin_make
     ```
 
-### Installing for the Simulator Robot
+### Installation for the Simulator Robot
 
 1. **Clone and Build the Software**
 
