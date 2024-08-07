@@ -31,46 +31,70 @@ Please make sure you have a system running Ubuntu 20.04.
 1. **Install the NAOqi Driver and ROS Packages**
 
     ```bash
-    sudo apt-get install ros-noetic-naoqi-driver
+    sudo apt-get update
+    sudo apt-get install -y ros-noetic-naoqi-driver ros-noetic-joint-trajectory-controller ros-noetic-ros-controllers ros-noetic-pepper-meshes
+    ```
+
+2. **Create and Initialize the ROS Workspace**
+
+    ```bash
     mkdir -p $HOME/workspace/pepper_rob_ws/src
     cd $HOME/workspace/pepper_rob_ws/src
+    ```
+
+3. **Clone the Required Repositories**
+
+    ```bash
     git clone https://github.com/cssr4africa/naoqi_dcm_driver.git
     git clone https://github.com/cssr4africa/naoqi_driver.git
     git clone https://github.com/cssr4africa/pepper_dcm_robot.git
     git clone https://github.com/ros-naoqi/pepper_virtual.git
     git clone https://github.com/ros-naoqi/pepper_robot.git
     git clone https://github.com/ros-naoqi/pepper_moveit_config.git
-    cd .. && catkin_make
-    source devel/setup.bash
-    echo "source $HOME/workspace/pepper_rob_ws/devel/setup.bash" >> $HOME/.bashrc
-    sudo apt-get install ros-noetic-joint-trajectory-controller ros-noetic-ros-controllers ros-noetic-pepper-meshes
     ```
 
-2. **Install and Configure the Python NAOqi SDK**
+4. **Build the Workspace**
+
+    ```bash
+    cd $HOME/workspace/pepper_rob_ws
+    catkin_make
+    ```
+
+5. **Update the ROS Environment**
+
+    ```bash
+    source devel/setup.bash
+    echo "source $HOME/workspace/pepper_rob_ws/devel/setup.bash" >> $HOME/.bashrc
+    ```
+
+6. **Install and Configure the Python NAOqi SDK**
 
     ```bash
     cd $HOME
-    sudo apt install python2
-    python2 --version
+    sudo apt install -y python2 libpython2.7 libatlas3-base
     curl https://bootstrap.pypa.io/pip/2.7/get-pip.py --output get-pip.py
-    sudo apt-get install libpython2.7 libatlas3-base
     sudo python2 get-pip.py
-    pip2 --version
     pip2 install numpy
     wget -S -L https://community-static.aldebaran.com/resources/2.5.5/sdk-python/pynaoqi-python2.7-2.5.5.5-linux64.tar.gz
     tar -xvf pynaoqi-python2.7-2.5.5.5-linux64.tar.gz
-    echo "export PYTHONPATH=${PYTHONPATH}:$HOME/pynaoqi-python2.7-2.5.5.5-linux64/lib/python2.7/site-packages" >> $HOME/.bashrc
+    echo "export PYTHONPATH=\${PYTHONPATH}:$HOME/pynaoqi-python2.7-2.5.5.5-linux64/lib/python2.7/site-packages" >> $HOME/.bashrc
     source $HOME/.bashrc
     ```
 
-3. **Bring Up Pepper**
+7. **Bring Up Pepper**
 
     ```bash
-    sudo apt install net-tools
+    sudo apt install -y net-tools
     ifconfig
-    roslaunch pepper_dcm_bringup pepper_bringup.launch robot_ip:=<robot_ip> roscore_ip:=<roscore_ip> network_interface:=<network_interface_name>
-    roslaunch naoqi_driver naoqi_driver.launch nao_ip:=<robot_ip> roscore_ip:=<roscore_ip> network_interface:=<network_interface_name>
     ```
+
+   ```bash
+   roslaunch pepper_dcm_bringup pepper_bringup.launch robot_ip:=<robot_ip> roscore_ip:=<roscore_ip> network_interface:=<network_interface_name>
+   ```
+
+   ```bash
+   roslaunch naoqi_driver naoqi_driver.launch nao_ip:=<robot_ip> roscore_ip:=<roscore_ip> network_interface:=<network_interface_name>
+   ```
 
 ### For the Gazebo Simulator
 
