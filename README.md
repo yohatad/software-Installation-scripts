@@ -1,6 +1,6 @@
 # CSSR4Africa Project
 
-![CSSR4Africa Logo](CSSR4AfricaLogo.svg)
+<img src="CSSR4AfricaLogo.svg" alt="CSSR4Africa Logo" style="width:100%; height:auto;">
 
 The Culturally Sensitive Social Robotics for Africa (CSSR4Africa) project aims to equip robots to interact politely with people in Africa using spatial, non-verbal, and verbal modes of interaction.
 
@@ -18,7 +18,7 @@ The Culturally Sensitive Social Robotics for Africa (CSSR4Africa) project aims t
 
 ## Introduction
 
-This repository contains the source code and installation instructions for the CSSR4Africa project.
+This repository contains the necessary codes and installation instructions for the CSSR4Africa project.
 
 ## Prerequisites
 
@@ -83,16 +83,20 @@ Please make sure you have a system running Ubuntu 20.04.
 
 7. **Bring Up Pepper**
 
+    For bringing up the robot, you need to know the robot IP, the roscore IP, and the network interface name. The robot IP is the IP address of the robot, the roscore IP is the IP address of the computer running the roscore, and the network interface name is the name of the network interface. The network interface name can be found by running the `ifconfig` command below.
+
     ```bash
     sudo apt install -y net-tools
     ifconfig
     ```
 
+    On a terminal launch the pepper_bringup to bring up the robot.
+
    ```bash
    roslaunch pepper_dcm_bringup pepper_bringup.launch robot_ip:=<robot_ip> roscore_ip:=<roscore_ip> network_interface:=<network_interface_name>
    ```
 
-   On a New terminal launch the naoqi_driver to get the sensor data.
+   On a new terminal launch the naoqi_driver.
 
    ```bash
    roslaunch naoqi_driver naoqi_driver.launch nao_ip:=<robot_ip> roscore_ip:=<roscore_ip> network_interface:=<network_interface_name>
@@ -118,6 +122,9 @@ Please make sure you have a system running Ubuntu 20.04.
 
     ```bash
     roslaunch pepper_gazebo_plugin pepper_gazebo_plugin_in_office_CPU.launch
+    ```
+
+    ```bash
     rosrun rviz rviz -d `rospack find pepper_gazebo_plugin`/config/pepper_sensors.rviz
     ```
 
@@ -150,8 +157,30 @@ Please make sure you have a system running Ubuntu 20.04.
     ```bash
     cd $HOME/workspace/pepper_rob_ws
     source devel/setup.bash
-    roslaunch pepper_interface_tests actuatorTestLaunchRobot.launch robot_ip:=<robot_ip> roscore_ip:=<roscore_ip> network_interface:=<network_interface_name>
-    roslaunch pepper_interface_tests sensorTestLaunchRobot.launch robot_ip:=<robot_ip> roscore_ip:=<roscore_ip> network_interface:=<network_interface_name>
+    ```
+
+    **Running test on the actuator** 
+        
+    ```bash
+    roslaunch pepper_interface_tests actuatorTestLaunchRobot.launch robot_ip:=<robot_ip> 
+    roscore_ip:=<roscore_ip> network_interface:=<network_interface_name>
+    ```
+
+    On a new terminal run the actuator test.
+    ```bash
+    rosrun pepper_interface_tests actuatorTest
+    ```
+
+    **Running test on the sensor**
+
+    ```bash
+    roslaunch pepper_interface_tests sensorTestLaunchRobot.launch robot_ip:=<robot_ip> 
+    roscore_ip:=<roscore_ip> network_interface:=<network_interface_name>
+    ```
+
+    On a new terminal run the sensor test.
+    ```bash
+    rosrun pepper_interface_tests sensorTest
     ```
 
 2. **Run Tests on the Simulator**
@@ -160,8 +189,16 @@ Please make sure you have a system running Ubuntu 20.04.
     cd $HOME/workspace/pepper_sim_ws
     source devel/setup.bash
     roslaunch pepper_interface_tests interfaceTestLaunchSimulator.launch
-    rosrun pepper_interface_tests sensorTest
+    ```
+    
+    On a new terminal run the actuator test.
+    ```bash
     rosrun pepper_interface_tests actuatorTest
+    ```
+
+    On a new terminal run the sensor test.
+    ```bash
+    rosrun pepper_interface_tests sensorTest
     ```
 
 ## References
