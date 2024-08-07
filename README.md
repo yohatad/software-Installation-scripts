@@ -11,8 +11,8 @@ The Culturally Sensitive Social Robotics for Africa (CSSR4Africa) project aims t
   - [For the Physical Robot](#for-the-physical-robot)
   - [For the Gazebo Simulator](#for-the-gazebo-simulator)
 - [Installing and Running the CSSR4Africa Software](#installing-and-running-the-cssr4africa-software)
-  - [Installing for the Physical Robot](#installing-for-the-physical-robot)
-  - [Installing for the Simulator Robot](#installing-for-the-simulator-robot)
+  - [Installing for the Physical Robot](#installation-for-the-physical-robot)
+  - [Installing for the Simulator Robot](#installation-for-the-simulator-robot)
   - [Running the Software](#running-the-software)
 - [References](#references)
 
