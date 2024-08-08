@@ -18,7 +18,7 @@ The CSSR4Africa (Culturally sensitive social robots for Africa) project aims to 
 
 ## Introduction
 
-This repository contains the necessary codes and installation instructions for the CSSR4Africa project.
+This repository contains the necessary shell scripts and installation instructions for the CSSR4Africa project.
 
 ## Prerequisites
 
@@ -26,6 +26,74 @@ Please make sure you have a system running Ubuntu 20.04.
 
 ## Setting up the Development Environment
 
+### Installing Dependencies
+1. **Install curl**
+    
+    ```bash
+    sudo apt install curl
+    ```
+
+2. **Install Git**
+    
+    ```bash
+    sudo apt install git
+    ```
+    
+3. **Install python3-pip**
+    
+    ```bash
+    sudo apt install python3-pip
+    ```
+
+### Installing ROS Noetic
+
+1. **Setup your computer to accept software from packages.ros.org.**
+
+    ```bash
+    sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
+    ```
+
+2. **Setup your keys.**
+
+    ```bash
+    curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | sudo apt-key add -
+    ```
+
+3. **Update your package list.**
+
+    ```bash
+    sudo apt update
+    ```
+
+4. **Install ROS Noetic.**
+
+    ```bash
+    sudo apt install ros-noetic-desktop-full
+    ```
+
+5. **Add ROS environment variables to your bash session every time a new shell is launched.**
+
+    ```bash
+    echo "source /opt/ros/noetic/setup.bash" >> ~/.bashrc
+    source ~/.bashrc
+    ```
+
+6. **Install dependencies for building packages.**
+
+    ```bash
+    sudo apt install python3-rosdep python3-rosinstall python3-rosinstall-generator python3-wstool build-essential
+    ```
+
+7. **Initialize rosdep.**
+
+    ```bash
+    sudo rosdep init
+    rosdep update
+    ```
+
+### Installing additonal dependencies
+
+    
 ### For the Physical Robot
 
 1. **Install the NAOqi Driver and ROS Packages**
