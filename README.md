@@ -31,6 +31,8 @@ Please make sure you have a system running Ubuntu 20.04.
 
     ```bash
     sudo apt update && upgrade
+    ```
+    ```bash
     sudo apt install -y curl git python3-pip
     ```
 
