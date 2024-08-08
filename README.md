@@ -218,29 +218,29 @@ Please make sure you have a system running Ubuntu 20.04.
     source devel/setup.bash
     ```
 
-    **Running test on the actuator** 
+    1. **Running test on the actuator** 
         
-    ```bash
-    roslaunch pepper_interface_tests actuatorTestLaunchRobot.launch robot_ip:=<robot_ip> 
-    roscore_ip:=<roscore_ip> network_interface:=<network_interface_name>
-    ```
+        ```bash
+        roslaunch pepper_interface_tests actuatorTestLaunchRobot.launch robot_ip:=<robot_ip> 
+        roscore_ip:=<roscore_ip> network_interface:=<network_interface_name>
+        ```
 
-    On a new terminal run the actuator test.
-    ```bash
-    rosrun pepper_interface_tests actuatorTest
-    ```
+        On a new terminal run the actuator test.
+        ```bash
+        rosrun pepper_interface_tests actuatorTest
+        ```
 
-    **Running test on the sensor**
+    2. **Running test on the sensor**
 
-    ```bash
-    roslaunch pepper_interface_tests sensorTestLaunchRobot.launch robot_ip:=<robot_ip> 
-    roscore_ip:=<roscore_ip> network_interface:=<network_interface_name>
-    ```
+        ```bash
+        roslaunch pepper_interface_tests sensorTestLaunchRobot.launch robot_ip:=<robot_ip> 
+        roscore_ip:=<roscore_ip> network_interface:=<network_interface_name>
+        ```
 
-    On a new terminal run the sensor test.
-    ```bash
-    rosrun pepper_interface_tests sensorTest
-    ```
+        On a new terminal run the sensor test.
+        ```bash
+        rosrun pepper_interface_tests sensorTest
+        ```
 
 2. **Run Tests on the Simulator**
 
