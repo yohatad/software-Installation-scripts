@@ -28,7 +28,7 @@ Please make sure you have a system running Ubuntu 20.04.
 
 ### Installing Dependencies
    **Install curl, Git, and python3-pip**
-    
+
     ```bash
     sudo apt install curl git python3-pip
     ```
