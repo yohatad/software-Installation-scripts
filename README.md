@@ -129,14 +129,14 @@ Please make sure you have a system running Ubuntu 20.04.
 6. **Install and Configure the Python NAOqi SDK**
 
     ```bash
-    cd $HOME
-    sudo apt install -y python2 libpython2.7 libatlas3-base
-    curl https://bootstrap.pypa.io/pip/2.7/get-pip.py --output get-pip.py
-    sudo python2 get-pip.py
-    pip2 install numpy
-    wget -S -L https://community-static.aldebaran.com/resources/2.5.5/sdk-python/pynaoqi-python2.7-2.5.5.5-linux64.tar.gz
-    tar -xvf pynaoqi-python2.7-2.5.5.5-linux64.tar.gz
-    echo "export PYTHONPATH=\${PYTHONPATH}:$HOME/pynaoqi-python2.7-2.5.5.5-linux64/lib/python2.7/site-packages" >> $HOME/.bashrc
+    cd $HOME && \
+    sudo apt install -y python2 libpython2.7 libatlas3-base && \
+    curl https://bootstrap.pypa.io/pip/2.7/get-pip.py --output get-pip.py && \
+    sudo python2 get-pip.py && \
+    pip2 install numpy && \
+    wget -S -L https://community-static.aldebaran.com/resources/2.5.5/sdk-python/pynaoqi-python2.7-2.5.5.5-linux64.tar.gz && \
+    tar -xvf pynaoqi-python2.7-2.5.5.5-linux64.tar.gz && \
+    echo "export PYTHONPATH=\${PYTHONPATH}:$HOME/pynaoqi-python2.7-2.5.5.5-linux64/lib/python2.7/site-packages" >> $HOME/.bashrc && \
     source $HOME/.bashrc
     ```
 
@@ -145,8 +145,7 @@ Please make sure you have a system running Ubuntu 20.04.
     For bringing up the robot, you need to know the robot IP, the roscore IP, and the network interface name. The robot IP is the IP address of the robot, the roscore IP is the IP address of the computer running the roscore, and the network interface name is the name of the network interface. The network interface name can be found by running the `ifconfig` command below.
 
     ```bash
-    sudo apt install -y net-tools
-    ifconfig
+    sudo apt install -y net-tools && ifconfig
     ```
 
     On a terminal launch the pepper_bringup to bring up the robot.
