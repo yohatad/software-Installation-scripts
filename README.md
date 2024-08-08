@@ -27,22 +27,10 @@ Please make sure you have a system running Ubuntu 20.04.
 ## Setting up the Development Environment
 
 ### Installing Dependencies
-1. **Install curl**
+   **Install curl, Git, and python3-pip**
     
     ```bash
-    sudo apt install curl
-    ```
-
-2. **Install Git**
-    
-    ```bash
-    sudo apt install git
-    ```
-    
-3. **Install python3-pip**
-    
-    ```bash
-    sudo apt install python3-pip
+    sudo apt install curl git python3-pip
     ```
 
 ### Installing ROS Noetic
