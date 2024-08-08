@@ -30,8 +30,7 @@ Please make sure you have a system running Ubuntu 20.04.
 1.  **Install Curl, Git, and python3-pip**
 
     ```bash
-    sudo apt update
-    sudo apt upgrade -y
+    sudo apt update && sudo apt upgrade -y
     ```
 
     ```bash
