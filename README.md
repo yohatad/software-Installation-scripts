@@ -60,7 +60,7 @@ Please make sure you have a system running Ubuntu 20.04.
 4. **Install ROS Noetic.**
 
     ```bash
-    sudo apt install ros-noetic-desktop-full
+    sudo apt install -y ros-noetic-desktop-full
     ```
 
 5. **Add ROS environment variables to your bash session every time a new shell is launched.**
@@ -73,7 +73,7 @@ Please make sure you have a system running Ubuntu 20.04.
 6. **Install dependencies for building packages.**
 
     ```bash
-    sudo apt install python3-rosdep python3-rosinstall python3-rosinstall-generator python3-wstool build-essential
+    sudo apt install -y python3-rosdep python3-rosinstall python3-rosinstall-generator python3-wstool build-essential
     ```
 
 7. **Initialize rosdep.**
