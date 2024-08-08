@@ -91,7 +91,6 @@ Please make sure you have a system running Ubuntu 20.04.
 1. **Install the NAOqi Driver and ROS Packages**
 
     ```bash
-    sudo apt-get update
     sudo apt-get install -y ros-noetic-naoqi-driver ros-noetic-joint-trajectory-controller ros-noetic-ros-controllers ros-noetic-pepper-meshes
     ```
 
