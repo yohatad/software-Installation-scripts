@@ -262,6 +262,7 @@ Please make sure you have a system running Ubuntu 20.04.
 
 ## References
 
+- [ROS Noetic Installation](http://wiki.ros.org/noetic/Installation/Ubuntu)
 - [Pepper Technical Specifications](http://doc.aldebaran.com/2-5/family/pepper_technical/index_pep.html)
 - [Pepper User Guide](http://doc.aldebaran.com/2-5/family/pepper_user_guide/first_conf_pep.html)
 - [CSSR4Africa Deliverable D4.1](https://cssr4africa.github.io/deliverables/CSSR4Africa_Deliverable_D4.1.pdf)
