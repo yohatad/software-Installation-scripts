@@ -2,7 +2,7 @@
 
 <img src="CSSR4AfricaLogo.svg" alt="CSSR4Africa Logo" style="width:100%; height:auto;">
 
-The Culturally Sensitive Social Robotics for Africa (CSSR4Africa) project aims to equip robots to interact politely with people in Africa using spatial, non-verbal, and verbal modes of interaction.
+The CSSR4Africa (Culturally sensitive social robots for Africa) project aims to equip social robots with culturally-sensitive behaviours to engage effectively with people in African contexts. By identifying verbal and non-verbal social and cultural norms prevalent in African countries, the project integrates these behavioural patterns into robots, ensuring interactions align with local expectations. Demonstrations include giving a tour of a university laboratory and assisting visitors with directions at a university reception, showcasing the robots' culturally-aware engagement.
 
 ## Table of Contents
 - [Introduction](#introduction)
