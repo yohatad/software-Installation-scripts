@@ -97,33 +97,33 @@ Please make sure you have a system running Ubuntu 20.04.
 2. **Create and Initialize the ROS Workspace**
 
     ```bash
-    mkdir -p $HOME/workspace/pepper_rob_ws/src
-    cd $HOME/workspace/pepper_rob_ws/src
+    mkdir -p $HOME/workspace/pepper_rob_ws/src && cd $HOME/workspace/pepper_rob_ws/src
+
     ```
 
 3. **Clone the Required Repositories**
 
     ```bash
-    git clone https://github.com/cssr4africa/naoqi_dcm_driver.git
-    git clone https://github.com/cssr4africa/naoqi_driver.git
-    git clone https://github.com/cssr4africa/pepper_dcm_robot.git
-    git clone https://github.com/ros-naoqi/pepper_virtual.git
-    git clone https://github.com/ros-naoqi/pepper_robot.git
+    git clone https://github.com/cssr4africa/naoqi_dcm_driver.git && \
+    git clone https://github.com/cssr4africa/naoqi_driver.git && \
+    git clone https://github.com/cssr4africa/pepper_dcm_robot.git && \
+    git clone https://github.com/ros-naoqi/pepper_virtual.git && \
+    git clone https://github.com/ros-naoqi/pepper_robot.git && \
     git clone https://github.com/ros-naoqi/pepper_moveit_config.git
+
     ```
 
 4. **Build the Workspace**
 
     ```bash
-    cd $HOME/workspace/pepper_rob_ws
-    catkin_make
+    cd $HOME/workspace/pepper_rob_ws && catkin_make
+
     ```
 
 5. **Update the ROS Environment**
 
     ```bash
-    source devel/setup.bash
-    echo "source $HOME/workspace/pepper_rob_ws/devel/setup.bash" >> $HOME/.bashrc
+    source devel/setup.bash && echo "source $HOME/workspace/pepper_rob_ws/devel/setup.bash" >> $HOME/.bashrc
     ```
 
 6. **Install and Configure the Python NAOqi SDK**
