@@ -27,7 +27,7 @@ Please make sure you have a system running Ubuntu 20.04.
 ## Setting up the Development Environment
 
 ### Installing Dependencies
-   **Install curl, Git, and python3-pip**
+   **Install Curl, Git, and python3-pip**
 
     ```bash
     sudo apt install curl git python3-pip
