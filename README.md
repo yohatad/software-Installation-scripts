@@ -165,14 +165,14 @@ Please make sure you have a system running Ubuntu 20.04.
 1. **Install the Gazebo Simulator**
 
     ```bash
-    mkdir -p $HOME/workspace/pepper_sim_ws/src
-    cd $HOME/workspace/pepper_sim_ws/src
-    git clone -b correct_chain_model_and_gazebo_enabled https://github.com/awesomebytes/pepper_robot
-    git clone -b simulation_that_works https://github.com/awesomebytes/pepper_virtual
-    git clone https://github.com/cssr4africa/gazebo_model_velocity_plugin
-    sudo apt-get install ros-noetic-tf2-sensor-msgs ros-noetic-ros-control ros-noetic-ros-controllers ros-noetic-gazebo-ros ros-noetic-gazebo-ros-control ros-noetic-gazebo-plugins ros-noetic-controller-manager ros-noetic-ddynamic-reconfigure-python ros-noetic-pepper-meshes
-    cd .. && catkin_make -DSIMULATOR=ON
-    echo "source $HOME/workspace/pepper_sim_ws/devel/setup.bash" >> $HOME/.bashrc
+    mkdir -p $HOME/workspace/pepper_sim_ws/src && \
+    cd $HOME/workspace/pepper_sim_ws/src && \
+    git clone -b correct_chain_model_and_gazebo_enabled https://github.com/awesomebytes/pepper_robot && \
+    git clone -b simulation_that_works https://github.com/awesomebytes/pepper_virtual && \
+    git clone https://github.com/cssr4africa/gazebo_model_velocity_plugin && \
+    sudo apt-get install -y ros-noetic-tf2-sensor-msgs ros-noetic-ros-control ros-noetic-ros-controllers ros-noetic-gazebo-ros ros-noetic-gazebo-ros-control ros-noetic-gazebo-plugins ros-noetic-controller-manager ros-noetic-ddynamic-reconfigure-python ros-noetic-pepper-meshes && \
+    cd $HOME/workspace/pepper_sim_ws && catkin_make -DSIMULATOR=ON && \
+    echo "source $HOME/workspace/pepper_sim_ws/devel/setup.bash" >> $HOME/.bashrc && \
     source $HOME/.bashrc
     ```
 
@@ -193,9 +193,10 @@ Please make sure you have a system running Ubuntu 20.04.
 1. **Clone and Build the Software**
 
     ```bash
-    cd $HOME/workspace/pepper_rob_ws/src
-    git clone https://github.com/cssr4africa/cssr4africa.git
-    cd .. && catkin_make
+    cd $HOME/workspace/pepper_rob_ws/src && \
+    git clone https://github.com/cssr4africa/cssr4africa.git && \
+    cd $HOME/workspace/pepper_rob_ws && catkin_make
+
     ```
 
 ### Installation for the Simulator Robot
@@ -203,9 +204,9 @@ Please make sure you have a system running Ubuntu 20.04.
 1. **Clone and Build the Software**
 
     ```bash
-    cd $HOME/workspace/pepper_sim_ws/src
-    git clone https://github.com/cssr4africa/cssr4africa.git
-    cd .. && catkin_make -DSIMULATOR=ON
+    cd $HOME/workspace/pepper_sim_ws/src && \
+    git clone https://github.com/cssr4africa/cssr4africa.git && \
+    cd $HOME/workspace/pepper_sim_ws && catkin_make -DSIMULATOR=ON
     ```
 
 ### Running the Software
