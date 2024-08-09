@@ -57,7 +57,7 @@ git clone -b correct_chain_model_and_gazebo_enabled https://github.com/awesomeby
 git clone -b simulation_that_works https://github.com/awesomebytes/pepper_virtual && \
 git clone https://github.com/cssr4africa/gazebo_model_velocity_plugin && \
 sudo apt-get install -y ros-noetic-tf2-sensor-msgs ros-noetic-ros-control ros-noetic-ros-controllers ros-noetic-gazebo-ros ros-noetic-gazebo-ros-control ros-noetic-gazebo-plugins ros-noetic-controller-manager ros-noetic-ddynamic-reconfigure-python ros-noetic-pepper-meshes && \
-cd $HOME/workspace/pepper_sim_ws && catkin_make -DSIMULATOR=ON
+cd $HOME/workspace/pepper_sim_ws && catkin_make
 
 # Replace the current shell with a new shell to persist the environment changes
 exec bash
