@@ -148,7 +148,7 @@ Please make sure you have a system running Ubuntu 20.04.
     sudo apt install -y net-tools && ifconfig
     ```
 
-    On a terminal launch the pepper_bringup to bring up the robot.
+    On a new terminal launch the pepper_bringup to bring up the robot.
 
    ```bash
    roslaunch pepper_dcm_bringup pepper_bringup.launch robot_ip:=<robot_ip> roscore_ip:=<roscore_ip> network_interface:=<network_interface_name>
@@ -179,15 +179,15 @@ Please make sure you have a system running Ubuntu 20.04.
     ```bash
     echo "source $HOME/workspace/pepper_sim_ws/devel/setup.bash" >> $HOME/.bashrc && \
     source $HOME/.bashrc
-    ```
-
-    
+    ```    
 
 2. **Run the Gazebo Simulator**
 
     ```bash
     roslaunch pepper_gazebo_plugin pepper_gazebo_plugin_in_office_CPU.launch
     ```
+    
+    To visualize the robot in RViz, run the following command in a new terminal:
 
     ```bash
     rosrun rviz rviz -d `rospack find pepper_gazebo_plugin`/config/pepper_sensors.rviz
