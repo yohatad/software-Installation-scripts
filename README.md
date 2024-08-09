@@ -87,8 +87,15 @@ Please make sure you have a system running Ubuntu 20.04.
 
 ### `Alternative Method`
 Use the following shell script to install ROS Noetic.
+1. **Clone the GitHub repository Software Installation Scripts**
 
 ```bash
+git clone https://github.com/cssr4africa/software-Installation-scripts.git
+```
+
+2. **Navigate to the software-Installation-scripts directory and run the install_ros_noetic.sh script**
+```bash
+cd software-Installation-scripts &&
 ./install_ros_noetic.sh
 ```
    
