@@ -193,14 +193,6 @@ cd software-Installation-scripts &&
     echo "source $HOME/workspace/pepper_sim_ws/devel/setup.bash" >> $HOME/.bashrc && \
     source $HOME/.bashrc
     ```    
-
-### `Alternative Method`
-`Use the following shell script to setup the workspace for both the physical and simulator enviornment. Inorder to make the simulator as the default workspace, you need to run the above commands to source the simulator workspace.`
-
-```bash
-./install_pepper_ws.sh
-```
-
 2. **Run the Gazebo Simulator**
 
     ```bash
@@ -212,6 +204,13 @@ cd software-Installation-scripts &&
     ```bash
     rosrun rviz rviz -d `rospack find pepper_gazebo_plugin`/config/pepper_sensors.rviz
     ```
+
+### `Alternative Method`
+`Use the following shell script to setup the workspace for both the physical and simulator enviornment. Inorder to make the simulator as the default workspace, you need to run the above commands to source the simulator workspace.`
+
+```bash
+./install_pepper_ws.sh
+```
 
 ## Installing and Running the CSSR4Africa Software
 
