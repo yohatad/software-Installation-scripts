@@ -29,7 +29,7 @@ Please make sure you have a system running Ubuntu 20.04.
 `You can follow one of the two alterantives below to setup the development environment for the CSSR4Africa project. You can follow the step by step guide to install ROS Noetic and the required dependencies or you can use the alternative method to install the required software using the provided shell scripts.`
 
 ### Installing Dependencies
-1.  **Install Curl, Git, and python3-pip**
+1.  **Install Curl, Git, and Python3-pip**
 
     ```bash
     sudo apt update && sudo apt upgrade -y
@@ -47,38 +47,38 @@ Please make sure you have a system running Ubuntu 20.04.
     sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
     ```
 
-2. **Setup your keys.**
+2. **Setup your keys**
 
     ```bash
     curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | sudo apt-key add -
     ```
 
-3. **Update your package list.**
+3. **Update your package list**
 
     ```bash
     sudo apt update
     ```
 
-4. **Install ROS Noetic.**
+4. **Install ROS Noetic**
 
     ```bash
     sudo apt install -y ros-noetic-desktop-full
     ```
 
-5. **Add ROS environment variables to your bash session every time a new shell is launched.**
+5. **Add ROS environment variables to your bash session every time a new shell is launched**
 
     ```bash
     echo "source /opt/ros/noetic/setup.bash" >> ~/.bashrc
     source ~/.bashrc
     ```
 
-6. **Install dependencies for building packages.**
+6. **Install dependencies for building packages**
 
     ```bash
     sudo apt install -y python3-rosdep python3-rosinstall python3-rosinstall-generator python3-wstool build-essential
     ```
 
-7. **Initialize rosdep.**
+7. **Initialize rosdep**
 
     ```bash
     sudo rosdep init
