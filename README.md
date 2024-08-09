@@ -26,7 +26,7 @@ Please make sure you have a system running Ubuntu 20.04.
 
 ## Setting up the Development Environment
 
- `You can follow one of the two alterantives below to setup the development environment for the CSSR4Africa project. You can follow the step by step guide to install ROS Noetic and the required dependencies or you can use the alternative method to install the required software using the provided shell scripts.`
+`You can follow one of the two alterantives below to setup the development environment for the CSSR4Africa project. You can follow the step by step guide to install ROS Noetic and the required dependencies or you can use the alternative method to install the required software using the provided shell scripts.`
 
 ### Installing Dependencies
 1.  **Install Curl, Git, and python3-pip**
