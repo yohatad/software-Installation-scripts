@@ -89,7 +89,6 @@ Please make sure you have a system running Ubuntu 20.04.
 Use the following shell script to install ROS Noetic.
 
 ```bash
-chmod +x install_ros_noetic.sh
 ./install_ros_noetic.sh
 ```
    
@@ -192,7 +191,6 @@ chmod +x install_ros_noetic.sh
 `Use the following shell script to setup the workspace for both the physical and simulator enviornment. Inorder to make the simulator as the default workspace, you need to run the above commands to source the simulator workspace.`
 
 ```bash
-chmod +x install_pepper_ws.sh
 ./install_pepper_ws.sh
 ```
 
