@@ -95,7 +95,6 @@ git clone https://github.com/cssr4africa/software-Installation-scripts.git
 
 2. **Navigate to the software-Installation-scripts directory and run the install_ros_noetic.sh script**
 ```bash
-cd software-Installation-scripts &&
 ./install_ros_noetic.sh
 ```
    
@@ -207,6 +206,8 @@ cd software-Installation-scripts &&
 
 ### `Alternative Method`
 `Use the following shell script to setup the workspace for both the physical and simulator enviornment. Inorder to make the simulator as the default workspace, you need to run the above commands to source the simulator workspace.`
+
+**Navigate to the software-Installation-scripts directory and run the install_pepper_ws.sh script**
 
 ```bash
 ./install_pepper_ws.sh
