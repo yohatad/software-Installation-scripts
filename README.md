@@ -68,8 +68,7 @@ Please make sure you have a system running Ubuntu 20.04.
 5. **Add ROS environment variables to your bash session every time a new shell is launched**
 
     ```bash
-    echo "source /opt/ros/noetic/setup.bash" >> ~/.bashrc
-    source ~/.bashrc
+    echo "source /opt/ros/noetic/setup.bash" >> ~/.bashrc && source ~/.bashrc
     ```
 
 6. **Install dependencies for building packages**
@@ -135,7 +134,7 @@ git clone https://github.com/cssr4africa/software-Installation-scripts.git
 5. **Update the ROS Environment**
 
     ```bash
-    source devel/setup.bash && echo "source $HOME/workspace/pepper_rob_ws/devel/setup.bash" >> $HOME/.bashrc
+    echo "source $HOME/workspace/pepper_rob_ws/devel/setup.bash" >> $HOME/.bashrc && source devel/setup.bash 
     ```
 
 6. **Install and Configure the Python NAOqi SDK**
