@@ -34,6 +34,7 @@ sudo apt-get install -y ros-noetic-pepper-meshes
 
 # Install Python 2.7, Pip2, and necessary packages
 echo "Installing Python 2.7, Pip2, and necessary packages..." && \
+cd $HOME && \
 sudo apt install -y python2 libpython2.7 libatlas3-base && \
 curl https://bootstrap.pypa.io/pip/2.7/get-pip.py --output get-pip.py && \
 sudo python2 get-pip.py && \
