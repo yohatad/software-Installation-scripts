@@ -26,6 +26,8 @@ Please make sure you have a system running Ubuntu 20.04.
 
 ## Setting up the Development Environment
 
+ `You can follow one of the two alterantives below to setup the development environment for the CSSR4Africa project. You can follow the step by step guide to install ROS Noetic and the required dependencies or you can use the alternative method to install the required software using the provided shell scripts.`
+
 ### Installing Dependencies
 1.  **Install Curl, Git, and python3-pip**
 
@@ -34,7 +36,7 @@ Please make sure you have a system running Ubuntu 20.04.
     ```
 
     ```bash
-    sudo apt install -y curl git python3-pip
+    sudo apt install -y curl git python3-pip net-tools
     ```
 
 ### Installing ROS Noetic
@@ -83,9 +85,14 @@ Please make sure you have a system running Ubuntu 20.04.
     rosdep update
     ```
 
-### Installing additonal dependencies
+### `Alternative Method`
+Use the following shell script to install ROS Noetic.
 
-    
+```bash
+chmod +x install_ros_noetic.sh
+./install_ros_noetic.sh
+```
+   
 ### For the Physical Robot
 
 1. **Install the NAOqi Driver and ROS Packages**
@@ -145,7 +152,7 @@ Please make sure you have a system running Ubuntu 20.04.
     For bringing up the robot, you need to know the robot IP, the roscore IP, and the network interface name. The robot IP is the IP address of the robot, the roscore IP is the IP address of the computer running the roscore, and the network interface name is the name of the network interface. The network interface name can be found by running the `ifconfig` command below.
 
     ```bash
-    sudo apt install -y net-tools && ifconfig
+    ifconfig
     ```
 
     On a new terminal launch the pepper_bringup to bring up the robot.
@@ -180,6 +187,14 @@ Please make sure you have a system running Ubuntu 20.04.
     echo "source $HOME/workspace/pepper_sim_ws/devel/setup.bash" >> $HOME/.bashrc && \
     source $HOME/.bashrc
     ```    
+
+### `Alternative Method`
+`Use the following shell script to setup the workspace for both the physical and simulator enviornment. Inorder to make the simulator as the default workspace, you need to run the above commands to source the simulator workspace.`
+
+```bash
+chmod +x install_pepper_ws.sh
+./install_pepper_ws.sh
+```
 
 2. **Run the Gazebo Simulator**
 
