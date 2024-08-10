@@ -60,5 +60,9 @@ git clone https://github.com/cssr4africa/gazebo_model_velocity_plugin && \
 sudo apt-get install -y ros-noetic-tf2-sensor-msgs ros-noetic-ros-control ros-noetic-ros-controllers ros-noetic-gazebo-ros ros-noetic-gazebo-ros-control ros-noetic-gazebo-plugins ros-noetic-controller-manager ros-noetic-ddynamic-reconfigure-python ros-noetic-pepper-meshes && \
 cd $HOME/workspace/pepper_sim_ws && catkin_make
 
+# Change the default Python version to Python 3
+sudo mv /usr/bin/pip /usr/bin/pip2 && \
+sudo ln -s /usr/bin/pip3 /usr/bin/pip
+
 # Replace the current shell with a new shell to persist the environment changes
 exec bash
