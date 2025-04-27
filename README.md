@@ -1,6 +1,10 @@
-# CSSR4Africa Project
+<div align="center">
+<h1> Software Installation Script </h1>
+</div>
 
-<img src="CSSR4AfricaLogo.svg" alt="CSSR4Africa Logo" style="width:100%; height:auto;">
+<div align="center">
+  <img src="CSSR4AfricaLogo.svg" alt="CSSR4Africa Logo" style="width:50%; height:auto;">
+</div>
 
 The CSSR4Africa (Culturally sensitive social robots for Africa) project aims to equip social robots with culturally-sensitive behaviours to engage effectively with people in African contexts. By identifying verbal and non-verbal social and cultural norms prevalent in African countries, the project integrates these behavioural patterns into robots, ensuring interactions align with local expectations. Demonstrations include giving a tour of a university laboratory and assisting visitors with directions at a university reception, showcasing the robots' culturally-aware engagement.
 
@@ -124,20 +128,26 @@ git clone https://github.com/cssr4africa/software-Installation-scripts.git
 
     ```
 
-4. **Build the Workspace**
+4. **Make scripts executable**
+
+    ```bash
+    chmod +x $HOME/workspace/pepper_rob_ws/src/naoqi_driver/scripts/*
+    ```
+
+5. **Build the Workspace**
 
     ```bash
     cd $HOME/workspace/pepper_rob_ws && catkin_make
 
     ```
 
-5. **Update the ROS Environment**
+6. **Update the ROS Environment**
 
     ```bash
     echo "source $HOME/workspace/pepper_rob_ws/devel/setup.bash" >> $HOME/.bashrc && source devel/setup.bash 
     ```
 
-6. **Install and Configure the Python NAOqi SDK**
+7. **Install and Configure the Python NAOqi SDK**
 
     ```bash
     cd $HOME && \
@@ -151,7 +161,7 @@ git clone https://github.com/cssr4africa/software-Installation-scripts.git
     source $HOME/.bashrc
     ```
 
-7. **Bring Up Pepper**
+8. **Bring Up Pepper**
 
     For bringing up the robot, you need to know the robot IP, the roscore IP, and the network interface name. The robot IP is the IP address of the robot, the roscore IP is the IP address of the computer running the roscore, and the network interface name is the name of the network interface. The network interface name can be found by running the `ifconfig` command below.
 

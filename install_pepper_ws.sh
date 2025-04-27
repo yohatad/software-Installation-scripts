@@ -17,6 +17,10 @@ git clone https://github.com/ros-naoqi/pepper_virtual.git && \
 git clone https://github.com/ros-naoqi/pepper_robot.git && \
 git clone https://github.com/ros-naoqi/pepper_moveit_config.git
 
+# Make scripts executable
+echo "Making naoqi_driver scripts executable..." && \
+chmod +x $HOME/workspace/pepper_rob_ws/src/naoqi_driver/scripts/*
+
 # Build the repository
 echo "Building the repository..." && \
 cd $HOME/workspace/pepper_rob_ws && catkin_make
