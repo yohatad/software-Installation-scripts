@@ -8,7 +8,7 @@
 
 The CSSR4Africa (Culturally sensitive social robots for Africa) project aims to equip social robots with culturally-sensitive behaviours to engage effectively with people in African contexts. By identifying verbal and non-verbal social and cultural norms prevalent in African countries, the project integrates these behavioural patterns into robots, ensuring interactions align with local expectations. Demonstrations include giving a tour of a university laboratory and assisting visitors with directions at a university reception, showcasing the robots' culturally-aware engagement.
 
-## Table of Contents
+# Table of Contents
 - [Introduction](#introduction)
 - [Prerequisites](#prerequisites)
 - [Setting up the Development Environment](#setting-up-the-development-environment)
@@ -20,19 +20,19 @@ The CSSR4Africa (Culturally sensitive social robots for Africa) project aims to 
   - [Running the Software](#running-the-software)
 - [References](#references)
 
-## Introduction
+# Introduction
 
 This repository contains the necessary shell scripts and installation instructions for the CSSR4Africa project.
 
-## Prerequisites
+# Prerequisites
 
 Please make sure you have a system running Ubuntu 20.04.
 
-## Setting up the Development Environment
+# Setting up the Development Environment
 
 `You can follow one of the two alterantives below to setup the development environment for the CSSR4Africa project. You can follow the step by step guide to install ROS Noetic and the required dependencies or you can use the alternative method to install the required software using the provided shell scripts.`
 
-### Installing Dependencies
+## Installing Dependencies
 1.  **Install Curl, Git, and Python3-pip**
 
     ```bash
@@ -43,7 +43,7 @@ Please make sure you have a system running Ubuntu 20.04.
     sudo apt install -y curl git python3-pip net-tools
     ```
 
-### Installing ROS Noetic
+## Installing ROS Noetic
 
 1. **Setup your computer to accept software from packages.ros.org.**
 
@@ -88,7 +88,7 @@ Please make sure you have a system running Ubuntu 20.04.
     rosdep update
     ```
 
-### `Alternative Method`
+## `Alternative Method`
 Use the following shell script to install ROS Noetic.
 1. **Clone the GitHub repository Software Installation Scripts**
 
@@ -101,7 +101,7 @@ git clone https://github.com/cssr4africa/software-Installation-scripts.git
 ./install_ros_noetic.sh
 ```
    
-### For the Physical Robot
+## For the Physical Robot
 
 1. **Install the NAOqi Driver and ROS Packages**
 
@@ -125,7 +125,6 @@ git clone https://github.com/cssr4africa/software-Installation-scripts.git
     git clone https://github.com/ros-naoqi/pepper_virtual.git && \
     git clone https://github.com/ros-naoqi/pepper_robot.git && \
     git clone https://github.com/ros-naoqi/pepper_moveit_config.git
-
     ```
 
 4. **Make scripts executable**
@@ -181,7 +180,7 @@ git clone https://github.com/cssr4africa/software-Installation-scripts.git
    roslaunch naoqi_driver naoqi_driver.launch nao_ip:=<robot_ip> roscore_ip:=<roscore_ip> network_interface:=<network_interface_name>
    ```
 
-### For the Gazebo Simulator
+## For the Gazebo Simulator
 
 1. **Install the Gazebo Simulator**
 
@@ -245,56 +244,55 @@ git clone https://github.com/cssr4africa/software-Installation-scripts.git
     cd $HOME/workspace/pepper_sim_ws && catkin_make -DSIMULATOR=ON
     ```
 
-### Running the Software
+# Running the Software
 
-1. **Run Tests on the Physical Robot**
-
-    ```bash
-    cd $HOME/workspace/pepper_rob_ws
-    source devel/setup.bash
-    ```
-
-    1. **Running test on the actuator** 
+## 1. **Run Tests on the Physical Robot**
+```bash
+cd $HOME/workspace/pepper_rob_ws
+source devel/setup.bash
+```
+### 1.1. **Running the pepper_interface_test**
+#### **Running test on the actuator** 
         
-        ```bash
-        roslaunch pepper_interface_tests actuatorTestLaunchRobot.launch robot_ip:=<robot_ip> 
-        roscore_ip:=<roscore_ip> network_interface:=<network_interface_name>
-        ```
+```bash
+roslaunch pepper_interface_tests actuatorTestLaunchRobot.launch robot_ip:=<robot_ip> 
+roscore_ip:=<roscore_ip> network_interface:=<network_interface_name>
+```
 
-        On a new terminal run the actuator test.
-        ```bash
-        rosrun pepper_interface_tests actuatorTest
-        ```
+On a new terminal run the actuator test.
+```bash
+rosrun pepper_interface_tests actuatorTest
+```
 
-    2. **Running test on the sensor**
+#### **Running test on the sensor**
 
-        ```bash
-        roslaunch pepper_interface_tests sensorTestLaunchRobot.launch robot_ip:=<robot_ip> 
-        roscore_ip:=<roscore_ip> network_interface:=<network_interface_name>
-        ```
+```bash
+roslaunch pepper_interface_tests sensorTestLaunchRobot.launch robot_ip:=<robot_ip> 
+roscore_ip:=<roscore_ip> network_interface:=<network_interface_name>
+```
 
-        On a new terminal run the sensor test.
-        ```bash
-        rosrun pepper_interface_tests sensorTest
-        ```
+On a new terminal run the sensor test.
+```bash
+rosrun pepper_interface_tests sensorTest
+```
 
-2. **Run Tests on the Simulator**
+## 2. **Run Tests on the Simulator**
 
-    ```bash
-    cd $HOME/workspace/pepper_sim_ws
-    source devel/setup.bash
-    roslaunch pepper_interface_tests interfaceTestLaunchSimulator.launch
-    ```
-    
-    On a new terminal run the actuator test.
-    ```bash
-    rosrun pepper_interface_tests actuatorTest
-    ```
+```bash
+cd $HOME/workspace/pepper_sim_ws
+source devel/setup.bash
+roslaunch pepper_interface_tests interfaceTestLaunchSimulator.launch
+```
 
-    On a new terminal run the sensor test.
-    ```bash
-    rosrun pepper_interface_tests sensorTest
-    ```
+On a new terminal run the actuator test.
+```bash
+rosrun pepper_interface_tests actuatorTest
+```
+
+On a new terminal run the sensor test.
+```bash
+rosrun pepper_interface_tests sensorTest
+```
 
 ## References
 
