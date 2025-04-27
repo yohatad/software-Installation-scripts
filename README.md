@@ -244,56 +244,6 @@ git clone https://github.com/cssr4africa/software-Installation-scripts.git
     cd $HOME/workspace/pepper_sim_ws && catkin_make -DSIMULATOR=ON
     ```
 
-# Running the Software
-
-## 1. **Run Tests on the Physical Robot**
-```bash
-cd $HOME/workspace/pepper_rob_ws
-source devel/setup.bash
-```
-### 1.1. **Running the pepper_interface_test**
-#### **Running test on the actuator** 
-        
-```bash
-roslaunch pepper_interface_tests actuatorTestLaunchRobot.launch robot_ip:=<robot_ip> 
-roscore_ip:=<roscore_ip> network_interface:=<network_interface_name>
-```
-
-On a new terminal run the actuator test.
-```bash
-rosrun pepper_interface_tests actuatorTest
-```
-
-#### **Running test on the sensor**
-
-```bash
-roslaunch pepper_interface_tests sensorTestLaunchRobot.launch robot_ip:=<robot_ip> 
-roscore_ip:=<roscore_ip> network_interface:=<network_interface_name>
-```
-
-On a new terminal run the sensor test.
-```bash
-rosrun pepper_interface_tests sensorTest
-```
-
-## 2. **Run Tests on the Simulator**
-
-```bash
-cd $HOME/workspace/pepper_sim_ws
-source devel/setup.bash
-roslaunch pepper_interface_tests interfaceTestLaunchSimulator.launch
-```
-
-On a new terminal run the actuator test.
-```bash
-rosrun pepper_interface_tests actuatorTest
-```
-
-On a new terminal run the sensor test.
-```bash
-rosrun pepper_interface_tests sensorTest
-```
-
 ## References
 
 - [ROS Noetic Installation](http://wiki.ros.org/noetic/Installation/Ubuntu)
