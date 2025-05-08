@@ -68,6 +68,12 @@ chmod +x $HOME/workspace/software-Installation-scripts/*.sh
 ./install_cssr4africa_pacakge.sh
 ```
 
+<div align="center">
+
+## ✅ INSTALLATION COMPLETE ✅
+
+</div>
+
 ## `Step-by-step Installation`
 ### Installing Dependencies
 1.  **Install Curl, Git, and Python3-pip**
@@ -309,6 +315,12 @@ Each step below contains commands that can be executed together by copying and p
     git clone https://github.com/cssr4africa/cssr4africa.git && \
     cd $HOME/workspace/pepper_sim_ws && catkin_make -DSIMULATOR=ON
     ```
+
+<div align="center">
+
+## ✅ INSTALLATION COMPLETE ✅
+
+</div>
 
 ## References
 
