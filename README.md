@@ -239,7 +239,7 @@ chmod +x $HOME/workspace/software-Installation-scripts/*.sh
 ## Installing and Running the CSSR4Africa Software
 This guide provides step-by-step instructions for installing the CSSR4Africa software and models on your physical robot.
 
-# Installation for the Physical Robot
+### Installation for the Physical Robot
 
 Each step below contains commands that can be executed together by copying and pasting the entire code block into your terminal.
 
