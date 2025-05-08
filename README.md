@@ -239,28 +239,31 @@ chmod +x $HOME/workspace/software-Installation-scripts/*.sh
 ## Installing and Running the CSSR4Africa Software
 This guide provides step-by-step instructions for installing the CSSR4Africa software and models on your physical robot.
 
-### Installation for the Physical Robot
+# Installation for the Physical Robot
+
+Each step below contains commands that can be executed together by copying and pasting the entire code block into your terminal.
 
 1. **Clone and Build the Software**
 
     ```bash
     cd $HOME/workspace/pepper_rob_ws/src && \
     git clone https://github.com/cssr4africa/cssr4africa.git && \
-    cd $HOME/workspace/pepper_rob_ws && catkin_make
+    cd $HOME/workspace/pepper_rob_ws && \
+    catkin_make
     ```
 
 2. **Clone the Models from HuggingFace**
 
     ```bash
-    cd ~
-    git lfs install
+    cd ~ && \
+    git lfs install && \
     git clone https://huggingface.co/cssr4africa/cssr4africa_models
     ```
 
 3. **Move the Face Detection Models**
 
     ```bash
-    mkdir -p $HOME/workspace/pepper_rob_ws/src/cssr4africa/cssr_system/face_detection/models
+    mkdir -p $HOME/workspace/pepper_rob_ws/src/cssr4africa/cssr_system/face_detection/models && \
     mv ~/cssr4africa_models/face_detection/models/* \
     $HOME/workspace/pepper_rob_ws/src/cssr4africa/cssr_system/face_detection/models/
     ```
@@ -268,7 +271,7 @@ This guide provides step-by-step instructions for installing the CSSR4Africa sof
 4. **Move the Person Detection Models**
 
     ```bash
-    mkdir -p $HOME/workspace/pepper_rob_ws/src/cssr4africa/cssr_system/person_detection/models
+    mkdir -p $HOME/workspace/pepper_rob_ws/src/cssr4africa/cssr_system/person_detection/models && \
     mv ~/cssr4africa_models/person_detection/models/* \
     $HOME/workspace/pepper_rob_ws/src/cssr4africa/cssr_system/person_detection/models/
     ```
@@ -276,15 +279,15 @@ This guide provides step-by-step instructions for installing the CSSR4Africa sof
 5. **Clone the Unit Test Data from HuggingFace**
 
     ```bash
-    cd ~
-    git lfs install
+    cd ~ && \
+    git lfs install && \
     git clone https://huggingface.co/cssr4africa/cssr4africa_unit_tests_data_files
     ```
 
 6. **Move the Face Detection Test Data**
 
     ```bash
-    mkdir -p $HOME/workspace/pepper_rob_ws/src/unit_tests/face_detection_test/data
+    mkdir -p $HOME/workspace/pepper_rob_ws/src/unit_tests/face_detection_test/data && \
     mv ~/cssr4africa_unit_tests_data_files/face_detection_test/data/* \
     $HOME/workspace/pepper_rob_ws/src/unit_tests/face_detection_test/data/
     ```
@@ -292,11 +295,11 @@ This guide provides step-by-step instructions for installing the CSSR4Africa sof
 7. **Move the Person Detection Test Data**
 
     ```bash
-    mkdir -p $HOME/workspace/pepper_rob_ws/src/unit_tests/person_detection_test/data
+    mkdir -p $HOME/workspace/pepper_rob_ws/src/unit_tests/person_detection_test/data && \
     mv ~/cssr4africa_unit_tests_data_files/person_detection_test/data/* \
     $HOME/workspace/pepper_rob_ws/src/unit_tests/person_detection_test/data/
     ```
-
+    
 ### Installation for the Simulator Robot
 
 1. **Clone and Build the Software**
