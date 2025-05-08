@@ -63,7 +63,7 @@ chmod +x $HOME/workspace/software-Installation-scripts/*.sh
 ./install_pepper_ws.sh
 ```
 
-`The following shell script install the cssr4africa package, all model files and data files, and python envionment packages needed to run the ROS nodes`
+`The following shell script installs the cssr4africa package, all model files and data files, and Python environment packages needed to run the ROS nodes.`
 ```bash
 ./install_cssr4africa_pacakge.sh
 ```
