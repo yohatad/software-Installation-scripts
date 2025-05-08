@@ -17,7 +17,6 @@ The CSSR4Africa (Culturally sensitive social robots for Africa) project aims to 
 - [Installing and Running the CSSR4Africa Software](#installing-and-running-the-cssr4africa-software)
   - [Installing for the Physical Robot](#installation-for-the-physical-robot)
   - [Installing for the Simulator Robot](#installation-for-the-simulator-robot)
-  - [Running the Software](#running-the-software)
 - [References](#references)
 
 # Introduction
@@ -30,9 +29,47 @@ Please make sure you have a system running Ubuntu 20.04.
 
 # Setting up the Development Environment
 
-`You can follow one of the two alterantives below to setup the development environment for the CSSR4Africa project. You can follow the step by step guide to install ROS Noetic and the required dependencies or you can use the alternative method to install the required software using the provided shell scripts.`
+> ⚡ **Important**  
+> You can follow one of the two alternatives below to set up the development environment for the **CSSR4Africa** project:
+> - Follow the **step-by-step guide** to install ROS Noetic and the required dependencies manually.
+> - Or use the **provided shell scripts** to install all required software automatically.
 
-## Installing Dependencies
+
+## `Using shell scripts`
+Use the following shell script to install ROS Noetic.
+1. **Clone the GitHub repository Software Installation Scripts**
+
+```bash
+mkdir -p $HOME/workspace/
+git clone https://github.com/cssr4africa/software-Installation-scripts.git
+cd $HOME/workspace/
+```
+
+2. **Make the all the shell files in the Software Installation Scripts executable**
+```bash
+chmod +x $HOME/workspace/software-Installation-scripts/*.sh
+```
+
+3. **Navigate to the software-Installation-scripts directory and run the install_ros_noetic.sh script**
+```bash
+./install_ros_noetic.sh
+```
+
+`Use the following shell script to setup the workspace for both the physical and simulator enviornment. Inorder to make the simulator as the default workspace, you need to source the simulator workspace.`
+
+4. **Navigate to the software-Installation-scripts directory and run the install_pepper_ws.sh script**
+
+```bash
+./install_pepper_ws.sh
+```
+
+`The following shell script install the cssr4africa package, all model files and data files, and python envionment packages needed to run the ROS nodes`
+```bash
+./install_cssr4africa_pacakge.sh
+```
+
+## `Step-by-step Installation`
+### Installing Dependencies
 1.  **Install Curl, Git, and Python3-pip**
 
     ```bash
@@ -43,7 +80,7 @@ Please make sure you have a system running Ubuntu 20.04.
     sudo apt install -y curl git python3-pip net-tools
     ```
 
-## Installing ROS Noetic
+### Installing ROS Noetic
 
 1. **Setup your computer to accept software from packages.ros.org.**
 
@@ -87,21 +124,8 @@ Please make sure you have a system running Ubuntu 20.04.
     sudo rosdep init
     rosdep update
     ```
-
-## `Alternative Method`
-Use the following shell script to install ROS Noetic.
-1. **Clone the GitHub repository Software Installation Scripts**
-
-```bash
-git clone https://github.com/cssr4africa/software-Installation-scripts.git
-```
-
-2. **Navigate to the software-Installation-scripts directory and run the install_ros_noetic.sh script**
-```bash
-./install_ros_noetic.sh
-```
    
-## For the Physical Robot
+### For the Physical Robot
 
 1. **Install the NAOqi Driver and ROS Packages**
 
@@ -180,7 +204,7 @@ git clone https://github.com/cssr4africa/software-Installation-scripts.git
    roslaunch naoqi_driver naoqi_driver.launch nao_ip:=<robot_ip> roscore_ip:=<roscore_ip> network_interface:=<network_interface_name>
    ```
 
-## For the Gazebo Simulator
+### For the Gazebo Simulator
 
 1. **Install the Gazebo Simulator**
 
@@ -212,16 +236,8 @@ git clone https://github.com/cssr4africa/software-Installation-scripts.git
     rosrun rviz rviz -d `rospack find pepper_gazebo_plugin`/config/pepper_sensors.rviz
     ```
 
-### `Alternative Method`
-`Use the following shell script to setup the workspace for both the physical and simulator enviornment. Inorder to make the simulator as the default workspace, you need to run the above commands to source the simulator workspace.`
-
-**Navigate to the software-Installation-scripts directory and run the install_pepper_ws.sh script**
-
-```bash
-./install_pepper_ws.sh
-```
-
 ## Installing and Running the CSSR4Africa Software
+This guide provides step-by-step instructions for installing the CSSR4Africa software and models on your physical robot.
 
 ### Installation for the Physical Robot
 
@@ -231,7 +247,54 @@ git clone https://github.com/cssr4africa/software-Installation-scripts.git
     cd $HOME/workspace/pepper_rob_ws/src && \
     git clone https://github.com/cssr4africa/cssr4africa.git && \
     cd $HOME/workspace/pepper_rob_ws && catkin_make
+    ```
 
+2. **Clone the Models from HuggingFace**
+
+    ```bash
+    cd ~
+    git lfs install
+    git clone https://huggingface.co/cssr4africa/cssr4africa_models
+    ```
+
+3. **Move the Face Detection Models**
+
+    ```bash
+    mkdir -p $HOME/workspace/pepper_rob_ws/src/cssr4africa/cssr_system/face_detection/models
+    mv ~/cssr4africa_models/face_detection/models/* \
+    $HOME/workspace/pepper_rob_ws/src/cssr4africa/cssr_system/face_detection/models/
+    ```
+
+4. **Move the Person Detection Models**
+
+    ```bash
+    mkdir -p $HOME/workspace/pepper_rob_ws/src/cssr4africa/cssr_system/person_detection/models
+    mv ~/cssr4africa_models/person_detection/models/* \
+    $HOME/workspace/pepper_rob_ws/src/cssr4africa/cssr_system/person_detection/models/
+    ```
+
+5. **Clone the Unit Test Data from HuggingFace**
+
+    ```bash
+    cd ~
+    git lfs install
+    git clone https://huggingface.co/cssr4africa/cssr4africa_unit_tests_data_files
+    ```
+
+6. **Move the Face Detection Test Data**
+
+    ```bash
+    mkdir -p $HOME/workspace/pepper_rob_ws/src/unit_tests/face_detection_test/data
+    mv ~/cssr4africa_unit_tests_data_files/face_detection_test/data/* \
+    $HOME/workspace/pepper_rob_ws/src/unit_tests/face_detection_test/data/
+    ```
+
+7. **Move the Person Detection Test Data**
+
+    ```bash
+    mkdir -p $HOME/workspace/pepper_rob_ws/src/unit_tests/person_detection_test/data
+    mv ~/cssr4africa_unit_tests_data_files/person_detection_test/data/* \
+    $HOME/workspace/pepper_rob_ws/src/unit_tests/person_detection_test/data/
     ```
 
 ### Installation for the Simulator Robot
