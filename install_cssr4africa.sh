@@ -69,6 +69,51 @@ install_simulator_robot() {
     echo "Simulator robot installation completed!"
 }
 
+# Function to install face and person detection environment
+install_face_person_detection_environment() {
+    echo "Setting up Face and Person Detection Environment..."
+    
+    # Update system packages
+    echo "1. Updating system packages..."
+    sudo apt update && sudo apt upgrade -y
+    
+    # Add the deadsnakes PPA for Python versions
+    echo "2. Adding Python repository..."
+    sudo apt install software-properties-common -y
+    sudo add-apt-repository ppa:deadsnakes/ppa -y
+    sudo apt update
+    
+    # Install Python 3.10
+    echo "3. Installing Python 3.10..."
+    sudo apt install python3.10 python3.10-venv python3.10-distutils -y
+    
+    # Verify Python installation
+    python3.10 --version
+    
+    # Set Up Virtual Environment
+    echo "4. Setting up virtual environment..."
+    mkdir -p $HOME/workspace/pepper_rob_ws/src/cssr4africa_virtual_envs
+    cd $HOME/workspace/pepper_rob_ws/src/cssr4africa_virtual_envs
+    python3.10 -m venv cssr4africa_face_person_detection_env
+    
+    # Activate the virtual environment
+    echo "5. Activating virtual environment..."
+    source cssr4africa_face_person_detection_env/bin/activate
+    
+    # Upgrade pip in the virtual environment
+    pip install --upgrade pip
+    
+    # Install PyTorch with CUDA support
+    echo "6. Installing PyTorch with CUDA support..."
+    pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
+    
+    # Install additional requirements
+    echo "7. Installing additional requirements..."
+    pip install -r $HOME/workspace/pepper_rob_ws/src/cssr4africa/cssr_system/face_detection/face_detection_requirements_x86.txt
+    
+    echo "Face and Person Detection Environment setup completed!"
+}
+
 # Main installation process
 echo "What would you like to install?"
 echo "1) Physical Robot"
@@ -79,6 +124,7 @@ read -p "Enter your choice (1-3): " choice
 case $choice in
     1)
         install_physical_robot
+        install_face_person_detection_environment
         ;;
     2)
         install_simulator_robot
@@ -86,6 +132,7 @@ case $choice in
     3)
         install_physical_robot
         install_simulator_robot
+        install_face_person_detection_environment
         ;;
     *)
         echo "Invalid choice. Exiting..."

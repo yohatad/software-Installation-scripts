@@ -16,6 +16,7 @@ The CSSR4Africa (Culturally sensitive social robots for Africa) project aims to 
   - [For the Gazebo Simulator](#for-the-gazebo-simulator)
 - [Installing and Running the CSSR4Africa Software](#installing-and-running-the-cssr4africa-software)
   - [Installing for the Physical Robot](#installation-for-the-physical-robot)
+  - [Setting up the Face and Person Detection Environment](#setting-up-the-face-and-person-detection-environment )
   - [Installing for the Simulator Robot](#installation-for-the-simulator-robot)
 - [References](#references)
 
@@ -64,6 +65,8 @@ chmod +x $HOME/workspace/software-Installation-scripts/*.sh
 ```
 
 `The following shell script installs the cssr4africa package, all model files and data files, and Python environment packages needed to run the ROS nodes.`
+
+5. **Within the software-Installation-scripts and run the the install_cssr4africa_package.sh**
 ```bash
 ./install_cssr4africa_pacakge.sh
 ```
@@ -305,7 +308,50 @@ Each step below contains commands that can be executed together by copying and p
     mv ~/cssr4africa_unit_tests_data_files/person_detection_test/data/* \
     $HOME/workspace/pepper_rob_ws/src/unit_tests/person_detection_test/data/
     ```
-    
+
+### Setting up the Face and Person Detection Environment
+
+This section provides steps to set up a dedicated Python environment for face and person detection functionality.
+
+1. **Update and Install System Packages**
+
+    ```bash
+    sudo apt update && sudo apt upgrade -y && \
+    sudo apt install software-properties-common -y && \
+    sudo add-apt-repository ppa:deadsnakes/ppa -y && \
+    sudo apt update
+    ```
+
+2. **Install Python 3.10**
+
+    ```bash
+    sudo apt install python3.10 python3.10-venv python3.10-distutils -y && \
+    python3.10 --version
+    ```
+
+3. **Create and Activate a Virtual Environment**
+
+    ```bash
+    mkdir -p $HOME/workspace/pepper_rob_ws/src/cssr4africa_virtual_envs && \
+    cd $HOME/workspace/pepper_rob_ws/src/cssr4africa_virtual_envs && \
+    python3.10 -m venv cssr4africa_face_person_detection_env && \
+    source cssr4africa_face_person_detection_env/bin/activate && \
+    pip install --upgrade pip
+    ```
+
+4. **Install PyTorch and Required Packages**
+
+    ```bash
+    pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118 && \
+    pip install -r $HOME/workspace/pepper_rob_ws/src/cssr4africa/cssr_system/face_detection/face_detection_requirements_x86.txt
+    ```
+
+Note: This environment is required for running face and person detection features on the physical robot. When you need to run these features, remember to activate the virtual environment first by running:
+
+```bash
+source $HOME/workspace/pepper_rob_ws/src/cssr4africa_virtual_envs/cssr4africa_face_person_detection_env/bin/activate
+```  
+
 ### Installation for the Simulator Robot
 
 1. **Clone and Build the Software**
