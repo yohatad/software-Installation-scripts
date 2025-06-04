@@ -114,6 +114,38 @@ install_face_person_detection_environment() {
     echo "Face and Person Detection Environment setup completed!"
 }
 
+# Function to install sound detection environment
+install_sound_detection_environment() {
+    echo "Setting up Sound Detection Environment..."
+    
+    # Update system packages (if not already done)
+    echo "1. Updating system packages..."
+    sudo apt update && sudo apt upgrade -y
+    
+    # Install Python virtual environment tools
+    echo "2. Installing Python 3.8 virtual environment tools..."
+    sudo apt install python3.8-venv -y
+    
+    # Set Up Virtual Environment
+    echo "3. Setting up sound detection virtual environment..."
+    mkdir -p $HOME/workspace/pepper_rob_ws/src/cssr4africa_virtual_envs
+    cd $HOME/workspace/pepper_rob_ws/src/cssr4africa_virtual_envs
+    python3.8 -m venv cssr4africa_sound_detection_env
+    
+    # Activate the virtual environment
+    echo "4. Activating virtual environment..."
+    source cssr4africa_sound_detection_env/bin/activate
+    
+    # Upgrade pip in the virtual environment
+    pip install --upgrade pip
+    
+    # Install additional requirements
+    echo "5. Installing sound detection requirements..."
+    pip install -r $HOME/workspace/pepper_rob_ws/src/cssr4africa/cssr_system/sound_detection/sound_detection_requirements.txt
+    
+    echo "Sound Detection Environment setup completed!"
+}
+
 # Main installation process
 echo "What would you like to install?"
 echo "1) Physical Robot"
@@ -125,6 +157,7 @@ case $choice in
     1)
         install_physical_robot
         install_face_person_detection_environment
+        install_sound_detection_environment
         ;;
     2)
         install_simulator_robot
@@ -133,6 +166,7 @@ case $choice in
         install_physical_robot
         install_simulator_robot
         install_face_person_detection_environment
+        install_sound_detection_environment
         ;;
     *)
         echo "Invalid choice. Exiting..."
