@@ -38,27 +38,31 @@ Please make sure you have a system running Ubuntu 20.04.
 
 ## `Using shell scripts`
 Use the following shell script to install ROS Noetic.
-1. **Clone the GitHub repository Software Installation Scripts**
+1. **Create the directory for installing the Software Installation Scripts**
+```bash
+mkdir -p "$HOME/workspace" && cd "$HOME/workspace"
+```
 
+2. **Clone the GitHub repository Software Installation Scripts**
 ```bash
 mkdir -p $HOME/workspace/
 git clone https://github.com/cssr4africa/software-Installation-scripts.git
 cd $HOME/workspace/
 ```
 
-2. **Make the all the shell files in the Software Installation Scripts executable**
+3. **Make the all the shell files in the Software Installation Scripts executable**
 ```bash
 chmod +x $HOME/workspace/software-Installation-scripts/*.sh
 ```
 
-3. **Navigate to the software-Installation-scripts directory and run the install_ros_noetic.sh script**
+4. **Navigate to the software-Installation-scripts directory and run the install_ros_noetic.sh script**
 ```bash
 ./install_ros_noetic.sh
 ```
 
 `Use the following shell script to setup the workspace for both the physical and simulator enviornment. Inorder to make the simulator as the default workspace, you need to source the simulator workspace.`
 
-4. **Navigate to the software-Installation-scripts directory and run the install_pepper_ws.sh script**
+5. **Navigate to the software-Installation-scripts directory and run the install_pepper_ws.sh script**
 
 ```bash
 ./install_pepper_ws.sh
@@ -66,7 +70,7 @@ chmod +x $HOME/workspace/software-Installation-scripts/*.sh
 
 `The following shell script installs the cssr4africa package, all model files and data files, and Python environment packages needed to run the ROS nodes.`
 
-5. **Within the software-Installation-scripts and run the the install_cssr4africa_package.sh**
+6. **Within the software-Installation-scripts and run the the install_cssr4africa_package.sh**
 ```bash
 ./install_cssr4africa_pacakge.sh
 ```
