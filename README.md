@@ -45,7 +45,6 @@ mkdir -p "$HOME/workspace" && cd "$HOME/workspace"
 
 2. **Clone the GitHub repository Software Installation Scripts**
 ```bash
-mkdir -p $HOME/workspace/
 git clone https://github.com/cssr4africa/software-Installation-scripts.git
 cd $HOME/workspace/
 ```
