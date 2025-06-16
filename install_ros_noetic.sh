@@ -6,7 +6,7 @@ set -x
 # Install curl, Git, and python3-pip
 echo "Installing curl, Git, and python3-pip..." && \
 sudo apt update && \
-sudo apt install -y curl git python3-pip git-lfs
+sudo apt install -y curl git python3-pip git-lfs net-tools
 
 # Setup the computer to accept software from packages.ros.org
 echo "Setting up ROS repository..." && \
