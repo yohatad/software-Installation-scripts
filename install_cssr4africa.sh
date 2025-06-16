@@ -10,49 +10,51 @@ echo ""
 # Function to install for physical robot
 install_physical_robot() {
     echo "Installing for Physical Robot..."
-    
+
     # 1. Clone and Build the Software
     echo "1. Cloning and building the software..."
-    cd $HOME/workspace/pepper_rob_ws/src && \
+    cd "$HOME/workspace/pepper_rob_ws/src" && \
     git clone https://github.com/cssr4africa/cssr4africa.git && \
-    cd $HOME/workspace/pepper_rob_ws && catkin_make
-    
-    # 2. Clone the Models from HuggingFace
-    echo "2. Cloning models from HuggingFace..."
+    cd "$HOME/workspace/pepper_rob_ws" && catkin_make
+
+    # 2. Clone HuggingFace Models
+    echo "2. Cloning model repository from HuggingFace..."
     cd ~
     git lfs install
     git clone https://huggingface.co/cssr4africa/cssr4africa_models
-    
-    # 3. Move the Face Detection Models
+
+    # 3. Move Face Detection Models (regular files only)
     echo "3. Moving face detection models..."
-    mkdir -p $HOME/workspace/pepper_rob_ws/src/cssr4africa/cssr_system/face_detection/models
+    mkdir -p "$HOME/workspace/pepper_rob_ws/src/cssr4africa/cssr_system/face_detection/models"
     mv ~/cssr4africa_models/face_detection/models/* \
-      $HOME/workspace/pepper_rob_ws/src/cssr4africa/cssr_system/face_detection/models/
-    
-    # 4. Move the Person Detection Models
+       "$HOME/workspace/pepper_rob_ws/src/cssr4africa/cssr_system/face_detection/models/" 2>/dev/null
+    rm -rf ~/cssr4africa_models/face_detection/models
+
+    # 4. Move Person Detection Models (regular files only)
     echo "4. Moving person detection models..."
-    mkdir -p $HOME/workspace/pepper_rob_ws/src/cssr4africa/cssr_system/person_detection/models
+    mkdir -p "$HOME/workspace/pepper_rob_ws/src/cssr4africa/cssr_system/person_detection/models"
     mv ~/cssr4africa_models/person_detection/models/* \
-      $HOME/workspace/pepper_rob_ws/src/cssr4africa/cssr_system/person_detection/models/
-    
-    # 5. Clone the Unit Test Data from HuggingFace
-    echo "5. Cloning unit test data from HuggingFace..."
-    cd ~
-    git lfs install
+       "$HOME/workspace/pepper_rob_ws/src/cssr4africa/cssr_system/person_detection/models/" 2>/dev/null
+    rm -rf ~/cssr4africa_models/person_detection/models
+
+    # 5. Clone Unit Test Data from HuggingFace
+    echo "5. Cloning unit test data repository from HuggingFace..."
     git clone https://huggingface.co/cssr4africa/cssr4africa_unit_tests_data_files
-    
-    # 6. Move the Face Detection Test Data
+
+    # 6. Move Face Detection Test Data (regular files only)
     echo "6. Moving face detection test data..."
-    mkdir -p $HOME/workspace/pepper_rob_ws/src/unit_tests/face_detection_test/data
+    mkdir -p "$HOME/workspace/pepper_rob_ws/src/cssr4africa/unit_tests/face_detection_test/data"
     mv ~/cssr4africa_unit_tests_data_files/face_detection_test/data/* \
-      $HOME/workspace/pepper_rob_ws/src/unit_tests/face_detection_test/data/
-    
-    # 7. Move the Person Detection Test Data
+       "$HOME/workspace/pepper_rob_ws/src/cssr4africa/unit_tests/face_detection_test/data/" 2>/dev/null
+    rm -rf ~/cssr4africa_unit_tests_data_files/face_detection_test/data
+
+    # 7. Move Person Detection Test Data (regular files only)
     echo "7. Moving person detection test data..."
-    mkdir -p $HOME/workspace/pepper_rob_ws/src/unit_tests/person_detection_test/data
+    mkdir -p "$HOME/workspace/pepper_rob_ws/src/cssr4africa/unit_tests/person_detection_test/data"
     mv ~/cssr4africa_unit_tests_data_files/person_detection_test/data/* \
-      $HOME/workspace/pepper_rob_ws/src/unit_tests/person_detection_test/data/
-      
+       "$HOME/workspace/pepper_rob_ws/src/cssr4africa/unit_tests/person_detection_test/data/" 2>/dev/null
+    rm -rf ~/cssr4africa_unit_tests_data_files/person_detection_test/data
+
     echo "Physical robot installation completed!"
 }
 
