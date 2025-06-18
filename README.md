@@ -38,29 +38,38 @@ Please make sure you have a system running Ubuntu 20.04.
 
 ## `Using shell scripts`
 Use the following shell script to install ROS Noetic.
-1. **Create the directory for installing the Software Installation Scripts**
+1. **Update and upgrade the system.**
+```bash
+sudo apt update && sudo apt upgrade -y
+```
+
+2. **Install Git.**
+```bash
+sudo apt install git
+```
+3. **Create the directory for installing the Software Installation Scripts**
 ```bash
 mkdir -p "$HOME/workspace" && cd "$HOME/workspace"
 ```
 
-2. **Clone the GitHub repository Software Installation Scripts**
+4. **Clone the GitHub repository Software Installation Scripts**
 ```bash
 git clone https://github.com/cssr4africa/software-Installation-scripts.git
 ```
 
-3. **Make the all the shell files in the Software Installation Scripts executable**
+5. **Make the all the shell files in the Software Installation Scripts executable**
 ```bash
 chmod +x $HOME/workspace/software-Installation-scripts/*.sh
 ```
 
-4. **Navigate to the software-Installation-scripts directory and run the install_ros_noetic.sh script**
+6. **Navigate to the software-Installation-scripts directory and run the install_ros_noetic.sh script**
 ```bash
 ./install_ros_noetic.sh
 ```
 
 `Use the following shell script to setup the workspace for both the physical and simulator enviornment. Inorder to make the simulator as the default workspace, you need to source the simulator workspace.`
 
-5. **Navigate to the software-Installation-scripts directory and run the install_pepper_ws.sh script**
+7. **Navigate to the software-Installation-scripts directory and run the install_pepper_ws.sh script**
 
 ```bash
 ./install_pepper_ws.sh
@@ -68,7 +77,7 @@ chmod +x $HOME/workspace/software-Installation-scripts/*.sh
 
 `The following shell script installs the cssr4africa package, all model files and data files, and Python environment packages needed to run the ROS nodes.`
 
-6. **Within the software-Installation-scripts and run the the install_cssr4africa_package.sh**
+8. **Within the software-Installation-scripts and run the the install_cssr4africa_package.sh**
 ```bash
 ./install_cssr4africa_pacakge.sh
 ```
@@ -88,7 +97,7 @@ chmod +x $HOME/workspace/software-Installation-scripts/*.sh
     ```
 
     ```bash
-    sudo apt install -y curl git python3-pip net-tools
+    sudo apt install -y curl git python3-pip net-tools git-lfs
     ```
 
 ### Installing ROS Noetic
@@ -276,7 +285,8 @@ Each step below contains commands that can be executed together by copying and p
     ```bash
     mkdir -p $HOME/workspace/pepper_rob_ws/src/cssr4africa/cssr_system/face_detection/models && \
     mv ~/cssr4africa_models/face_detection/models/* \
-    $HOME/workspace/pepper_rob_ws/src/cssr4africa/cssr_system/face_detection/models/
+    $HOME/workspace/pepper_rob_ws/src/cssr4africa/cssr_system/face_detection/models/ && \
+    rm -rf ~/cssr4africa_models/face_detection/models
     ```
 
 4. **Move the Person Detection Models**
@@ -284,14 +294,14 @@ Each step below contains commands that can be executed together by copying and p
     ```bash
     mkdir -p $HOME/workspace/pepper_rob_ws/src/cssr4africa/cssr_system/person_detection/models && \
     mv ~/cssr4africa_models/person_detection/models/* \
-    $HOME/workspace/pepper_rob_ws/src/cssr4africa/cssr_system/person_detection/models/
+    $HOME/workspace/pepper_rob_ws/src/cssr4africa/cssr_system/person_detection/models/ && \
+    rm -rf ~/cssr4africa_models/person_detection/models
     ```
 
 5. **Clone the Unit Test Data from HuggingFace**
 
     ```bash
     cd ~ && \
-    git lfs install && \
     git clone https://huggingface.co/cssr4africa/cssr4africa_unit_tests_data_files
     ```
 
@@ -300,7 +310,8 @@ Each step below contains commands that can be executed together by copying and p
     ```bash
     mkdir -p $HOME/workspace/pepper_rob_ws/src/unit_tests/face_detection_test/data && \
     mv ~/cssr4africa_unit_tests_data_files/face_detection_test/data/* \
-    $HOME/workspace/pepper_rob_ws/src/unit_tests/face_detection_test/data/
+    $HOME/workspace/pepper_rob_ws/src/cssr4africa/unit_tests/face_detection_test/data/ && \
+    rm -rf ~/cssr4africa_unit_tests_data_files/face_detection_test/data
     ```
 
 7. **Move the Person Detection Test Data**
@@ -308,7 +319,8 @@ Each step below contains commands that can be executed together by copying and p
     ```bash
     mkdir -p $HOME/workspace/pepper_rob_ws/src/unit_tests/person_detection_test/data && \
     mv ~/cssr4africa_unit_tests_data_files/person_detection_test/data/* \
-    $HOME/workspace/pepper_rob_ws/src/unit_tests/person_detection_test/data/
+    $HOME/workspace/pepper_rob_ws/src/cssr4africa/unit_tests/person_detection_test/data/ && \
+    rm -rf ~/cssr4africa_unit_tests_data_files/person_detection_test/data
     ```
 
 ### Setting up the Face and Person Detection Environment
@@ -352,7 +364,59 @@ Note: This environment is required for running face and person detection feature
 
 ```bash
 source $HOME/workspace/pepper_rob_ws/src/cssr4africa_virtual_envs/cssr4africa_face_person_detection_env/bin/activate
-```  
+``` 
+
+
+### Setting up the Sound Detection Enviornment
+
+This section provides step-by-step instructions to create and configure a dedicated Python virtual environment for the sound detection component of the CSSR4Africa robotics system. You can copy and paste these commands directly into your terminal.
+
+1. Install Python 3.8 and Virtual Environment Tools
+
+```bash
+sudo apt install -y python3.8 python3.8-venv python3.8-distutils
+```
+
+2. Create a Workspace Directory for Virtual Environments
+
+```bash
+mkdir -p $HOME/workspace/pepper_rob_ws/src/cssr4africa_virtual_envs
+cd $HOME/workspace/pepper_rob_ws/src/cssr4africa_virtual_envs
+```
+
+3. Create the Sound Detection Virtual Environment
+
+```bash
+python3.8 -m venv cssr4africa_sound_detection_env
+```
+
+4. Activate the Virtual Environment
+
+```bash
+source cssr4africa_sound_detection_env/bin/activate
+```
+
+> **Note:** Your prompt should now start with `(cssr4africa_sound_detection_env)` indicating that the environment is active.
+
+5. Upgrade pip Inside the Virtual Environment
+
+```bash
+pip install --upgrade pip
+```
+
+6. Install Project-Specific Dependencies
+
+```bash
+pip install -r \
+  $HOME/workspace/pepper_rob_ws/src/cssr4africa/cssr_system/sound_detection/sound_detection_requirements.txt
+```
+---
+
+Remember to **activate** the `cssr4africa_sound_detection_env` each time you start a new shell session before running any sound detection scripts:
+
+```bash
+source $HOME/workspace/pepper_rob_ws/src/cssr4africa_virtual_envs/cssr4africa_sound_detection_env/bin/activate
+```
 
 ### Installation for the Simulator Robot
 
@@ -377,3 +441,6 @@ source $HOME/workspace/pepper_rob_ws/src/cssr4africa_virtual_envs/cssr4africa_fa
 - [Pepper User Guide](http://doc.aldebaran.com/2-5/family/pepper_user_guide/first_conf_pep.html)
 - [CSSR4Africa Deliverable D4.1](https://cssr4africa.github.io/deliverables/CSSR4Africa_Deliverable_D4.1.pdf)
 - [CSSR4Africa Deliverable D5.1](https://cssr4africa.github.io/deliverables/CSSR4Africa_Deliverable_D5.1.pdf)
+- [CSSR4Africa Deliverable D4.2.1](https://cssr4africa.github.io/deliverables/CSSR4Africa_Deliverable_D4.2.1.pdf)
+- [CSSR4Africa Deliverable D4.2.2](https://cssr4africa.github.io/deliverables/CSSR4Africa_Deliverable_D4.2.2.pdf)
+- [CSSR4Africa Deliverable D4.2.3](https://cssr4africa.github.io/deliverables/CSSR4Africa_Deliverable_D4.2.3.pdf)
