@@ -28,14 +28,12 @@ install_physical_robot() {
     mkdir -p "$HOME/workspace/pepper_rob_ws/src/cssr4africa/cssr_system/face_detection/models"
     mv ~/cssr4africa_models/face_detection/models/* \
        "$HOME/workspace/pepper_rob_ws/src/cssr4africa/cssr_system/face_detection/models/" 2>/dev/null
-    rm -rf ~/cssr4africa_models/face_detection/models
 
     # 4. Move Person Detection Models (regular files only)
     echo "4. Moving person detection models..."
     mkdir -p "$HOME/workspace/pepper_rob_ws/src/cssr4africa/cssr_system/person_detection/models"
     mv ~/cssr4africa_models/person_detection/models/* \
        "$HOME/workspace/pepper_rob_ws/src/cssr4africa/cssr_system/person_detection/models/" 2>/dev/null
-    rm -rf ~/cssr4africa_models/person_detection/models
 
     # 5. Clone Unit Test Data from HuggingFace
     echo "5. Cloning unit test data repository from HuggingFace..."
@@ -46,14 +44,17 @@ install_physical_robot() {
     mkdir -p "$HOME/workspace/pepper_rob_ws/src/cssr4africa/unit_tests/face_detection_test/data"
     mv ~/cssr4africa_unit_tests_data_files/face_detection_test/data/* \
        "$HOME/workspace/pepper_rob_ws/src/cssr4africa/unit_tests/face_detection_test/data/" 2>/dev/null
-    rm -rf ~/cssr4africa_unit_tests_data_files/face_detection_test/data
 
     # 7. Move Person Detection Test Data (regular files only)
     echo "7. Moving person detection test data..."
     mkdir -p "$HOME/workspace/pepper_rob_ws/src/cssr4africa/unit_tests/person_detection_test/data"
     mv ~/cssr4africa_unit_tests_data_files/person_detection_test/data/* \
        "$HOME/workspace/pepper_rob_ws/src/cssr4africa/unit_tests/person_detection_test/data/" 2>/dev/null
-    rm -rf ~/cssr4africa_unit_tests_data_files/person_detection_test/data
+
+    # 8. Delete the cloned models and test data directories
+    echo "8. Cleaning up cloned directories..."
+    rm -rf ~/cssr4africa_models
+    rm -rf ~/cssr4africa_unit_tests_data_files
 
     echo "Physical robot installation completed!"
 }
