@@ -318,7 +318,7 @@ Each step below contains commands that can be executed together by copying and p
     mv ~/cssr4africa_unit_tests_data_files/person_detection_test/data/* \
     $HOME/workspace/pepper_rob_ws/src/cssr4africa/unit_tests/person_detection_test/data/
     ```
-8. **Deletion of the temporary folders**
+8. **Deletion of the Temporary Folders**
     ```bash
     rm -rf ~/cssr4africa_models && \
     rm -rf ~/cssr4africa_unit_tests_data_files
