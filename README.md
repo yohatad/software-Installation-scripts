@@ -285,8 +285,7 @@ Each step below contains commands that can be executed together by copying and p
     ```bash
     mkdir -p $HOME/workspace/pepper_rob_ws/src/cssr4africa/cssr_system/face_detection/models && \
     mv ~/cssr4africa_models/face_detection/models/* \
-    $HOME/workspace/pepper_rob_ws/src/cssr4africa/cssr_system/face_detection/models/ && \
-    rm -rf ~/cssr4africa_models/face_detection/models
+    $HOME/workspace/pepper_rob_ws/src/cssr4africa/cssr_system/face_detection/models/
     ```
 
 4. **Move the Person Detection Models**
@@ -294,8 +293,7 @@ Each step below contains commands that can be executed together by copying and p
     ```bash
     mkdir -p $HOME/workspace/pepper_rob_ws/src/cssr4africa/cssr_system/person_detection/models && \
     mv ~/cssr4africa_models/person_detection/models/* \
-    $HOME/workspace/pepper_rob_ws/src/cssr4africa/cssr_system/person_detection/models/ && \
-    rm -rf ~/cssr4africa_models/person_detection/models
+    $HOME/workspace/pepper_rob_ws/src/cssr4africa/cssr_system/person_detection/models/
     ```
 
 5. **Clone the Unit Test Data from HuggingFace**
@@ -310,8 +308,7 @@ Each step below contains commands that can be executed together by copying and p
     ```bash
     mkdir -p $HOME/workspace/pepper_rob_ws/src/unit_tests/face_detection_test/data && \
     mv ~/cssr4africa_unit_tests_data_files/face_detection_test/data/* \
-    $HOME/workspace/pepper_rob_ws/src/cssr4africa/unit_tests/face_detection_test/data/ && \
-    rm -rf ~/cssr4africa_unit_tests_data_files/face_detection_test/data
+    $HOME/workspace/pepper_rob_ws/src/cssr4africa/unit_tests/face_detection_test/data/
     ```
 
 7. **Move the Person Detection Test Data**
@@ -319,8 +316,12 @@ Each step below contains commands that can be executed together by copying and p
     ```bash
     mkdir -p $HOME/workspace/pepper_rob_ws/src/unit_tests/person_detection_test/data && \
     mv ~/cssr4africa_unit_tests_data_files/person_detection_test/data/* \
-    $HOME/workspace/pepper_rob_ws/src/cssr4africa/unit_tests/person_detection_test/data/ && \
-    rm -rf ~/cssr4africa_unit_tests_data_files/person_detection_test/data
+    $HOME/workspace/pepper_rob_ws/src/cssr4africa/unit_tests/person_detection_test/data/
+    ```
+8. **Deletion of the temporary folders**
+    ```bash
+    rm -rf ~/cssr4africa_models && \
+    rm -rf ~/cssr4africa_unit_tests_data_files
     ```
 
 ### Setting up the Face and Person Detection Environment
